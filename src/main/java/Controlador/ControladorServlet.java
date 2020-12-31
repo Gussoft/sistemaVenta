@@ -207,16 +207,23 @@ public class ControladorServlet extends HttpServlet {
         }
         if (menu.equals("NuevaVenta")) {
             switch (accion) {
+                 case "ListarC":
+                    List listaC = cdao.listar();
+                    request.setAttribute("clientes", listaC);
+                    request.setAttribute("c", cl);
+                    request.setAttribute("pro", pr);
+                    request.setAttribute("nserie", numerserie);
+                    break;
                 case "BuscarCliente":
                     String dni = request.getParameter("codcliente");
-                    cl.setDni(dni);
+                    cl.setDni(dni);//clienteDTO
                     cl = cdao.buscar(dni);
                     request.setAttribute("c", cl);
                     request.setAttribute("nserie", numerserie);
                     break;
                 case "BuscarProducto":
                     int id = Integer.parseInt(request.getParameter("codproducto"));
-                    pr = pdao.listarid(id);
+                    pr = pdao.listarid(id);//productoDTO
                     request.setAttribute("nserie", numerserie);
                     request.setAttribute("pro", pr);
                     request.setAttribute("c", cl);
@@ -261,7 +268,7 @@ public class ControladorServlet extends HttpServlet {
                     }
                     //Guardar venta
                     ve.setIdcliente(cl.getId());
-                    ve.setIdempleado(12);// setIdempleado
+                    ve.setIdempleado(1);// setIdempleado
                     ve.setNumSerie(numerserie);
                     ve.setFecha("2020-07-01");
                     ve.setMonto(totalpagar);

@@ -31,6 +31,7 @@ public class ClienteDAO {
             }
         } catch (Exception e) {
             System.out.println("Error al Buscar dni: "+ e);
+            e.printStackTrace();//mas detalles
         }
         return c;
     }

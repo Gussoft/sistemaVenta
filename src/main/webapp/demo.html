@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="tables/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="tables/css/dataTables.bootstrap4.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+            <!-- Button trigger modal -->
+            <input type="text" id="code1" name="code1" readonly="readonly">
+            <input type="text" id="code2" name="code2">
+            <button type="button" id="btn" onclick="enviare()" value="Enviar">Ok</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Buscar
+        </button>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Buscar Cliente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <table id="example" class="table table-sm table-hover mt-1 rounded" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Dni</th>
+                            <th>Nombres</th>
+                            <th>Direccion</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="cl" items="${clientes}">
+                        <tr>
+                            <td>
+                                <input type="hidden" id="code" name="code" value="123">
+                                <input type="text" id="code11" name="code" value="123">
+                                
+                            </td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>
+                                <input type="button" id="btn" class="btn btn-success btn-sm" value="Elejir" onclick="enviar('code11')"/> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" id="code" name="code" value="1234">
+                                <input type="text" id="code22" name="code" value="1234">
+                                
+                            </td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>
+                                <input type="button" id="btn" class="btn btn-success btn-sm" value="Elejir" onclick="enviar('code22')"/> 
+                            </td>
+                        </tr>
+                        </c:forEach>
+                    </tbody>
+                    
+                </table>
+            </div>
+            <div class="modal-footer">
+                <input type="text" id="envio" class="form-control" readonly="readonly"/>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary ml-1" onclick="enviare()" data-dismiss="modal">Buscar</button>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="tables/datatables.min.js"></script>
+    <script type="text/javascript" src="js/start.js"></script>
+    <script>
+       
+        function enviar(x){
+
+            var texto = document.getElementById(x).value;
+            document.getElementById("envio").value = texto;
+            console.log("Hola "+texto);
+        }
+         function enviare() {
+            var texto = document.getElementById("envio").value;
+            document.getElementById("code1").value = texto;
+            console.log("Hola 2 "+ texto);
+        }
+    </script>
+</body>
+</html>

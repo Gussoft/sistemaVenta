@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 public class Validar extends HttpServlet {
 
     EmpleadoDAO edao = new EmpleadoDAO();
-    Empleado em = new Empleado();
+   
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Empleado em = new Empleado();//los 500 soles
         String accion = request.getParameter("accion");
         if (accion.equalsIgnoreCase("Ingresar")) {
             String user = request.getParameter("txtuser");

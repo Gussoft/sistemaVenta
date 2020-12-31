@@ -78,10 +78,12 @@ public class EmpleadoDAO {
 
     public Empleado listarId(int id) {
         Empleado emp = new Empleado();
-        String sql = "select * from empleado where IdEmpleado=" + id;
+        //String sql = "select * from empleado where IdEmpleado=" + id;
+        StringBuilder sql = new StringBuilder("select *  from empleado WHERE IdEmpleado = ");
+        sql.append(id).append("");
         try {
             con = cn.Conexion();
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql.toString());
             rs = ps.executeQuery();
             while (rs.next()) {
                 emp.setDni(rs.getString(2));
@@ -116,10 +118,12 @@ public class EmpleadoDAO {
     }
 
     public void delete(int id) {
-        String sql = "delete from empleado where(IdEmpleado=" + id + ")";
+        //String sql = "delete from empleado where(IdEmpleado=" + id + ")";
+        StringBuilder sql = new StringBuilder("delete  from empleado WHERE (IdEmpleado = ");
+        sql.append(id).append(")");
         try {
             con = cn.Conexion();
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql.toString());
             ps.executeUpdate();
         } catch (Exception ex) {
             System.out.println("Error al Eliminar :" + ex);

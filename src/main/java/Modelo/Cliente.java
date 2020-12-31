@@ -2,11 +2,11 @@ package Modelo;
 
 public class Cliente {
 
-    int id;
-    String dni;
-    String nom;
-    String direc;
-    String estado;
+    private int id;
+    private String dni;
+    private String nom;
+    private String direc;
+    private String estado;
 
     public Cliente() {
 

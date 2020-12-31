@@ -54,7 +54,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="pr" items="${productos}">
+                            <c:forEach var="pr" items="productos">
                             <tr>
                                 <td>${pr.getIdp()}</td>
                                 <td>${pr.getNop()}</td>

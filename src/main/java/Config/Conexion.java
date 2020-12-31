@@ -9,10 +9,10 @@ public class Conexion {
 
     public Connection Conexion() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/bd_ventas?user=root&password=123456");
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sisventas?user=root&password=123456");
         } catch (Exception e) {
-
+            System.out.println("Error Conexion: " + e);
         }
         
         return con;
